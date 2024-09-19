@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-pros-cons-stream-page',
+  selector: 'app-front-tours-page',
   standalone: true,
   imports: [
     CommonModule,
   ],
-  templateUrl: './prosConsStreamPage.component.html',
+  templateUrl: './frontToursPage.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class ProsConsStreamPageComponent { }
+export default class FrontToursPageComponent { }

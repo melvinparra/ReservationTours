@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-image-generation-page',
+  selector: 'app-customers-page',
   standalone: true,
   imports: [
     CommonModule,
   ],
-  templateUrl: './imageGenerationPage.component.html',
+  templateUrl: './customersPage.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class ImageGenerationPageComponent { }
+export default class CustomersPageComponent { }

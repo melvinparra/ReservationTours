@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-translate-page',
+  selector: 'app-guides-page',
   standalone: true,
   imports: [
     CommonModule,
   ],
-  templateUrl: './translatePage.component.html',
+  templateUrl: './guidesPage.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class TranslatePageComponent { }
+export default class GuidesPageComponent { }
