@@ -20,4 +20,9 @@ export class DashboardLayoutComponent {
 
 
   public routes = routes[0].children?.filter(route => route.data )
+
+  constructor() {
+   console.log(routes)
+    
+  }
 }

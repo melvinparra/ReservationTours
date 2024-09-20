@@ -43,7 +43,7 @@ export const routes: Routes = [
         path: 'customer',
         loadComponent: () =>
           import(
-            './presentation/pages/customersPage/customersPage.component'
+            './presentation/pages/customer/customersPage/customersPage.component'
           ),
         data: {
           icon: 'fa-solid fa-spell-check',
@@ -65,7 +65,7 @@ export const routes: Routes = [
         path: 'reservation',
         loadComponent: () =>
           import(
-            './presentation/pages/reservationsPage/reservationsPage.component'
+            './presentation/pages/reservation/reservationsPage/reservationsPage.component'
           ),
         data: {
           icon: 'fa-solid fa-water',
@@ -76,7 +76,7 @@ export const routes: Routes = [
       {
         path: 'tours',
         loadComponent: () =>
-          import('./presentation/pages/toursPage/toursPage.component'),
+          import('./presentation/pages/tours/toursPage/toursPage.component'),
         data: {
           icon: 'fa-solid fa-language',
           title: 'Traducir',
