@@ -1,0 +1,39 @@
+/* Menú fijo arriba */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  
+  /* Estilo del slider */
+  .slider {
+    width: 300%; /* Porque son 3 slides */
+  }
+  
+  .slider-item {
+    width: 100%;
+  }
+  
+  .slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  header h1, header p, header button {
+    animation: fadeInUp 1.5s ease-in-out;
+  }
+  
+  @keyframes fadeInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Estilo para las tarjetas de tours */
+  .card {
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  

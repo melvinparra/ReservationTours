@@ -1,7 +1,6 @@
 <main class="flex flex-row mt-7">
     <nav
-      class="hidden sm:flex flex-col ml-5 w-[370px] min-h-[calc(100vh-3.0rem)] bg-white bg-opacity-10 p-5 rounded-3xl"
-    >
+      class="hidden sm:flex flex-col ml-5 w-[370px] min-h-[calc(100vh-3.0rem)] bg-white bg-opacity-10 p-5 rounded-3xl">
       <h1
         class="font-bold text-lg lg:text-3xl bg-gradient-to-br from-white via-white/50 bg-clip-text text-transparent"
       >
@@ -21,6 +20,13 @@
          />
 
        }
+       <app-sidebar-menuitem
+       [description]='"frontPage"'
+       [icon]="''"
+       [title]="'front'"
+       [path]="'/front/tours'"
+       />
+      
       <!-- End Nav Links -->
     </nav>
   

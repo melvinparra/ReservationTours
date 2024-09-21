@@ -1,55 +1,64 @@
 <div class="max-w-4xl mx-auto bg-white p-6 rounded-md shadow-md" style="color: black;">
-    <h2 class="text-xl font-bold mb-4">Crear o Actualizar Tour</h2>
-    <form [formGroup]="tourForm" (ngSubmit)="onSubmit()" class="space-y-4">
-      <div class="grid grid-cols-2 gap-4">
-        <div>
-          <label for="tourName" class="block text-sm font-medium">Nombre del Tour</label>
-          <input formControlName="tourName" type="text" id="tourName" class="mt-1 p-2 block w-full border rounded-md" required>
-        </div>
-        <div>
-          <label for="durationHours" class="block text-sm font-medium">Duración (Horas)</label>
-          <input formControlName="durationHours" type="number" id="durationHours" class="mt-1 p-2 block w-full border rounded-md" required>
-        </div>
-        <div>
-          <label for="price" class="block text-sm font-medium">Precio ($)</label>
-          <input formControlName="price" type="number" id="price" class="mt-1 p-2 block w-full border rounded-md" required>
-        </div>
-        <div>
-          <label for="maxCapacity" class="block text-sm font-medium">Capacidad Máxima</label>
-          <input formControlName="maxCapacity" type="number" id="maxCapacity" class="mt-1 p-2 block w-full border rounded-md" required>
-        </div>
+  <h2 class="text-xl font-bold mb-4">Crear o Actualizar Tour</h2>
+  <form [formGroup]="tourForm" (ngSubmit)="onSubmit()" class="space-y-4">
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <label for="tourName" class="block text-sm font-medium">Nombre del Tour</label>
+        <input formControlName="tourName" type="text" id="tourName" class="mt-1 p-2 block w-full border rounded-md" required>
       </div>
       <div>
-        <label for="description" class="block text-sm font-medium">Descripción</label>
-        <textarea formControlName="description" id="description" class="mt-1 p-2 block w-full border rounded-md"></textarea>
+        <label for="durationHours" class="block text-sm font-medium">Duración (Horas)</label>
+        <input formControlName="durationHours" type="number" id="durationHours" class="mt-1 p-2 block w-full border rounded-md" required>
       </div>
       <div>
-        <label for="location" class="block text-sm font-medium">Ubicación</label>
-        <input formControlName="location" type="text" id="location" class="mt-1 p-2 block w-full border rounded-md">
+        <label for="price" class="block text-sm font-medium">Precio ($)</label>
+        <input formControlName="price" type="number" id="price" class="mt-1 p-2 block w-full border rounded-md" required>
       </div>
       <div>
-        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md font-bold">Guardar Tour</button>
+        <label for="maxCapacity" class="block text-sm font-medium">Capacidad Máxima</label>
+        <input formControlName="maxCapacity" type="number" id="maxCapacity" class="mt-1 p-2 block w-full border rounded-md" required>
       </div>
-    </form>
-  </div>
-  
-  <!-- Listado de Tours -->
-  <section class="max-w-6xl mx-auto mt-8  " >
-    <h2 class="text-xl font-bold mb-4 text-white">Listado de Tours</h2>
-    <table class="min-w-full text-black bg-black rounded-md shadow-md overflow-hidden">
-      <thead class="bg-white">
-        <tr>
-          <th class="p-3 text-left">Nombre del Tour</th>
-          <th class="p-3 text-left">Duración (Horas)</th>
-          <th class="p-3 text-left">Precio</th>
-          <th class="p-3 text-left">Capacidad</th>
-          <th class="p-3 text-left">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
+    </div>
+    <div>
+      <label for="description" class="block text-sm font-medium">Descripción</label>
+      <textarea formControlName="description" id="description" class="mt-1 p-2 block w-full border rounded-md"></textarea>
+    </div>
+    <div>
+      <label for="location" class="block text-sm font-medium">Ubicación</label>
+      <input formControlName="location" type="text" id="location" class="mt-1 p-2 block w-full border rounded-md">
+    </div>
+    <div>
+      <label for="images" class="block text-sm font-medium">URLs de Imágenes (separadas por comas)</label>
+      <input type="text" formControlName="images" id="images" (change)="onImagesChanged($event)" class="mt-1 p-2 block w-full border rounded-md" placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg">
+    </div>
+    <div class="mt-2">
+      <h3 class="text-sm font-medium">Imágenes Cargadas:</h3>
+      <div class="flex space-x-2 mt-2">
+        <img *ngFor="let image of tourForm.value.images" [src]="image" alt="Imagen del Tour" class="w-16 h-16 object-cover rounded-md" />
+      </div>
+    </div>
+    <div>
+      <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md font-bold">Guardar Tour</button>
+    </div>
+  </form>
+</div>
 
-        @for (tour of tours(); track tour.tourId) {
-          <tr  class="border-t">
+<!-- Listado de Tours -->
+<section class="max-w-6xl mx-auto mt-8">
+  <h2 class="text-xl font-bold mb-4 text-white">Listado de Tours</h2>
+  <table class="min-w-full text-black bg-black rounded-md shadow-md overflow-hidden">
+    <thead class="bg-white">
+      <tr>
+        <th class="p-3 text-left">Nombre del Tour</th>
+        <th class="p-3 text-left">Duración (Horas)</th>
+        <th class="p-3 text-left">Precio</th>
+        <th class="p-3 text-left">Capacidad</th>
+        <th class="p-3 text-left">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (tour of tours(); track tour.tourId ) {
+        <tr class="border-t">
           <td class="text-white p-3">{{ tour.tourName }}</td>
           <td class="text-white p-3">{{ tour.durationHours }} horas</td>
           <td class="text-white p-3">${{ tour.price }}</td>
@@ -59,9 +68,8 @@
             <button class="bg-red-500 text-white py-1 px-2 rounded-md" (click)="deleteTour(tour.tourId)">Eliminar</button>
           </td>
         </tr>
-        }
         
-      </tbody>
-    </table>
-  </section>
-  
+      }
+    </tbody>
+  </table>
+</section>

@@ -14,7 +14,7 @@ export const routes: Routes = [
             './presentation/pages/customer/customersPage/customersPage.component'
           ),
         data: {
-          icon: 'fa-solid fa-spell-check',
+          icon: 'fa-solid fa-diamond',
           title: 'Customer',
           description: 'Customer Creation',
         },
@@ -24,7 +24,7 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./presentation/pages/guidesPage/guidesPage.component'),
         data: {
-          icon: 'fa-solid fa-code-compare',
+          icon: 'fa-solid fa-american-sign-language-interpreting',
           title: 'Guides',
           description: 'Guides creation',
         },
@@ -36,7 +36,7 @@ export const routes: Routes = [
             './presentation/pages/reservation/reservationsPage/reservationsPage.component'
           ),
         data: {
-          icon: 'fa-solid fa-water',
+          icon: 'fa-solid fa-address-book',
           title: 'Reservation',
           description: 'check reservations',
         },
@@ -46,7 +46,7 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./presentation/pages/tours/toursPage/toursPage.component'),
         data: {
-          icon: 'fa-solid fa-language',
+          icon: 'fa-solid fa-cubes',
           title: 'Tours',
           description: 'Tours creation',
         },
@@ -95,64 +95,3 @@ export const routes: Routes = [
       }
 
 ];
-
-
-// {
-//   path: 'text-to-audio',
-//   loadComponent: () =>
-//     import(
-//       './presentation/pages/textToAudioPage/textToAudioPage.component'
-//     ),
-//   data: {
-//     icon: 'fa-solid fa-podcast',
-//     title: 'Texto a audio',
-//     description: 'Convertir texto a audio',
-//   },
-// },
-// {
-//   path: 'audio-to-text',
-//   loadComponent: () =>
-//     import(
-//       './presentation/pages/audioToTextPage/audioToTextPage.component'
-//     ),
-//   data: {
-//     icon: 'fa-solid fa-comment-dots',
-//     title: 'Audio a texto',
-//     description: 'Convertir audio a texto',
-//   },
-// },
-// {
-//   path: 'image-generation',
-//   loadComponent: () =>
-//     import(
-//       './presentation/pages/imageGenerationPage/imageGenerationPage.component'
-//     ),
-//   data: {
-//     icon: 'fa-solid fa-image',
-//     title: 'Imágenes',
-//     description: 'Generar imágenes',
-//   },
-// },
-// {
-//   path: 'image-tunning',
-//   loadComponent: () =>
-//     import(
-//       './presentation/pages/imageTunningPage/imageTunningPage.component'
-//     ),
-//   data: {
-//     icon: 'fa-solid fa-wand-magic',
-//     title: 'Editar imagen',
-//     description: 'Generación continua',
-//   },
-// },
-
-// {
-//   path: 'tours',
-//   loadComponent: () =>
-//     import('./presentation/pages/ToursPage/toursPage.component'),
-//   data: {
-//     icon: 'fa-solid fa-user',
-//     title: 'Asistente',
-//     description: 'Información del asistente',
-//   },
-// },

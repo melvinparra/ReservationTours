@@ -3,6 +3,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { routes } from '../../../app.routes';
 import { SidebarMenuitemComponent } from '../../components/sidebarMenuitem/sidebarMenuitem.component';
 import { RouterModule } from '@angular/router';
+import SharedHeaderSliderComponent from '../../shared/headerSlider/sharedheaderSlider.component';
+import FrontToursPageComponent from '../../frontPage/frontToursPage/frontToursPage.component';
 
 @Component({
   selector: 'app-front-layout',
@@ -10,14 +12,16 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
-    SidebarMenuitemComponent
+    SharedHeaderSliderComponent,
+    FrontToursPageComponent
   ],
   templateUrl: './frontLayout.component.html',
+  styleUrls:['./frontLayout.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class FrontLayoutComponent { 
 
-  public route = routes.filter(route => route.path?.trim()=== 'front')[0].children?.filter(route => route.data)
+  //public route = routes.filter(route => route.path?.trim()=== 'front')[0].children?.filter(route => route.data)
 
   constructor() {
     

@@ -1,6 +1,6 @@
 // src/app/core/entities/tour.model.ts
 export interface Tour {
-    tourId: string;               // ID del tour
+   tourId: string;               // ID del tour
     tourName: string;             // Nombre del tour
     description?: string;         // Descripción del tour (opcional)
     location?: string;            // Ubicación del tour (opcional)
@@ -8,5 +8,6 @@ export interface Tour {
     price: number;                // Precio del tour
     maxCapacity: number;          // Capacidad máxima
     createdAt?: Date;             // Fecha de creación (opcional)
+    images: string[];             // Array de imágenes del tour
   }
   

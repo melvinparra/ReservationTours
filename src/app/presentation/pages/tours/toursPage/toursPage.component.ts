@@ -26,41 +26,55 @@ selectedTour: Tour | null = null;
 constructor(private fb: FormBuilder) {
    // Definimos el formulario con validaciones
    this.tourForm = this.fb.group({
-    tourId: [''],
+    tourId: '',
     tourName: ['', Validators.required],
     description: [''],
     location: [''],
     durationHours: [0, [Validators.required, Validators.min(1)]],
     price: [0, [Validators.required, Validators.min(0)]],
-    maxCapacity: [0, [Validators.required, Validators.min(1)]]
+    maxCapacity: [0, [Validators.required, Validators.min(1)]],
+    images:[]
   });
 
 }
+
   ngOnInit(): void {
-    this.tourService.getAllTours().subscribe(
-      data => {
-        console.log(data);
-        this.tours.set(data);
-      },
-      error => {
-        console.log( error);
-      }
-    );
-    
-    // this.tours = [
-    //   { tourId: '1', tourName: 'Tour a la Montaña', durationHours: 5, price: 100, maxCapacity: 20 },
-    //   { tourId: '2', tourName: 'City Tour', durationHours: 3, price: 50, maxCapacity: 15 }
-    // ];
+   this.cargarLista();
+   
   }
 
+cargarLista(){
+  this.tourService.getAllTours().subscribe(
+    data => {
+      console.log(data);
+      this.tours.set(data);
+    },
+    error => {
+      console.log( error);
+    }
+  );
+}
+
+  onImagesChanged(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    if (target.value) {
+      const urls = target.value.split(',').map(url => url.trim());
+      this.tourForm.patchValue({ images: urls });
+    }
+  }
   // Guardar o actualizar un tour
   onSubmit(): void {
    
     if (this.tourForm.valid) {
+      console.log(this.selectedTour);
+    
       if (this.selectedTour) {
         // Actualizar tour existente
         const index = this.tours().findIndex(tour => tour.tourId === this.selectedTour!.tourId);
         this.tours()[index] = { ...this.selectedTour, ...this.tourForm.value };
+        this.tourService.updateTour(this.tourForm.value).subscribe(
+      (value)=> { }
+    )
         this.selectedTour = null; // Resetear selección
       } else {
         // Crear nuevo tour
@@ -80,12 +94,15 @@ constructor(private fb: FormBuilder) {
       }
       this.tourForm.reset();
     }
+    this.cargarLista();
   }
 
   // Editar un tour
   editTour(tour: Tour): void {
     this.selectedTour = tour;
     this.tourForm.patchValue(tour); // Carga los valores del tour en el formulario
+//console.log(tour);
+    
   }
 
   // Eliminar un tour
