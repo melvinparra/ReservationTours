@@ -4,12 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Reservation } from '../../core/entities/reservation.model';
 import { ReservationRepository } from '../../core/repositories/reservation-repository';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService implements ReservationRepository {
-  private apiUrl = 'https://api.example.com/reservations'; // URL de la API
+  private apiUrl = `${environment.apiUrl}/reservations`; // URL de la API
 
   constructor(private http: HttpClient) {}
 

@@ -10,4 +10,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   templateUrl: './tour-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TourListComponent { }
+export default class TourListComponent { }

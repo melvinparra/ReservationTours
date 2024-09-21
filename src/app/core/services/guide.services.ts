@@ -4,12 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Guide } from '../../core/entities/guide.model';
 import { GuideRepository } from '../../core/repositories/guide-repository';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GuideService implements GuideRepository {
-  private apiUrl = 'https://api.example.com/guides'; // URL de la API
+  private apiUrl = `${environment.apiUrl}/guides`; // URL de la API
 
   constructor(private http: HttpClient) {}
 

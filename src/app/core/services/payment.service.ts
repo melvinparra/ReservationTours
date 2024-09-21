@@ -4,13 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Payment } from '../../core/entities/payment.model';
 import { PaymentRepository } from '../../core/repositories/payment-repository';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaymentService implements PaymentRepository {
-  private apiUrl = 'https://api.example.com/payments'; // URL de la API
-
+  private apiUrl = `${environment.apiUrl}/payments`;
   constructor(private http: HttpClient) {}
 
   getPaymentById(paymentId: number): Observable<Payment> {

@@ -1,6 +1,6 @@
 // src/app/core/entities/tour.model.ts
 export interface Tour {
-    tourId: number;               // ID del tour
+    tourId: string;               // ID del tour
     tourName: string;             // Nombre del tour
     description?: string;         // Descripción del tour (opcional)
     location?: string;            // Ubicación del tour (opcional)

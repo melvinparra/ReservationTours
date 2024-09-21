@@ -4,12 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Image } from '../../core/entities/image.model';
 import { ImageRepository } from '../repositories/image-repository';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService implements ImageRepository {
-  private apiUrl = 'https://api.example.com/images'; // URL de la API
+  
+  private apiUrl = `${environment.apiUrl}/images`; // URL de la API
 
   constructor(private http: HttpClient) {}
 

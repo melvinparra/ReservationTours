@@ -1,42 +1,10 @@
 import { Routes } from '@angular/router';
 import { DashboardLayoutComponent } from './presentation/layouts/dashboardLayout/dashboardLayout.component';
+import FrontLayoutComponent from './presentation/layouts/frontLayout/frontLayout.component';
 
 export const routes: Routes = [ 
-  {path: 'front',
-  component: DashboardLayoutComponent,
-  children: [
-    {
-      path: 'tours',
-      loadComponent: () =>
-        import(
-          './presentation/frontPage/frontToursPage/frontToursPage.component'
-        ),
-      data: {
-        icon: 'fa-solid fa-spell-check',
-        title: 'Ortografía',
-        description: 'Corregir ortografía',
-      }, 
-    }, {
-      path: 'reservations',
-      loadComponent: () =>
-        import(
-          './presentation/frontPage/frontReservationPage/frontReservationPage.component'
-        ),
-      data: {
-        icon: 'fa-solid fa-spell-check',
-        title: 'Ortografía',
-        description: 'Corregir ortografía',
-      }, 
-    },   
-      {
-        path: '**',
-        redirectTo: 'tours',
-        pathMatch: 'full',
-      }]
-    }
-
-  ,{
-    path: 'dashboar',
+  {
+    path: 'dashboard',
     component: DashboardLayoutComponent,
     children: [
       {
@@ -47,8 +15,8 @@ export const routes: Routes = [
           ),
         data: {
           icon: 'fa-solid fa-spell-check',
-          title: 'Ortografía',
-          description: 'Corregir ortografía',
+          title: 'Customer',
+          description: 'Customer Creation',
         },
       },
       {
@@ -57,8 +25,8 @@ export const routes: Routes = [
           import('./presentation/pages/guidesPage/guidesPage.component'),
         data: {
           icon: 'fa-solid fa-code-compare',
-          title: 'Pros & Cons',
-          description: 'Comparar pros y contras',
+          title: 'Guides',
+          description: 'Guides creation',
         },
       },
       {
@@ -69,8 +37,8 @@ export const routes: Routes = [
           ),
         data: {
           icon: 'fa-solid fa-water',
-          title: 'Como stream',
-          description: 'Con stream de mensajes',
+          title: 'Reservation',
+          description: 'check reservations',
         },
       },
       {
@@ -79,17 +47,53 @@ export const routes: Routes = [
           import('./presentation/pages/tours/toursPage/toursPage.component'),
         data: {
           icon: 'fa-solid fa-language',
-          title: 'Traducir',
-          description: 'Textos a otros idiomas',
+          title: 'Tours',
+          description: 'Tours creation',
         },
       },      
       {
         path: '**',
-        redirectTo: 'reservation',
+        redirectTo: 'tours',
         pathMatch: 'full',
       },
     ],
-  }
+  },{path: 'front',
+    component: FrontLayoutComponent,
+    children: [
+      {
+        path: 'tours',
+        loadComponent: () =>
+          import(
+            './presentation/frontPage/frontToursPage/frontToursPage.component'
+          ),
+        data: {
+          icon: 'fa-solid fa-spell-check',
+          title: 'Ortografía',
+          description: 'Corregir ortografía',
+        }, 
+      }, {
+        path: 'reservations',
+        loadComponent: () =>
+          import(
+            './presentation/frontPage/frontReservationPage/frontReservationPage.component'
+          ),
+        data: {
+          icon: 'fa-solid fa-spell-check',
+          title: 'Ortografía',
+          description: 'Corregir ortografía',
+        }, 
+      },   
+        {
+          path: '**',
+          redirectTo: 'tours',
+          pathMatch: 'full',
+        }]
+      }, {
+        path: '**',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+      }
+
 ];
 
 

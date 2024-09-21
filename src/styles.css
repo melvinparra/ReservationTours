@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+/* html, body {
   background-color: #000000;
   color: white;
   font-family: 'Open Sans', sans-serif;
 
-}
-
+} */
+/* 
 
 h1 {
   @apply text-3xl font-bold mb-4;
@@ -49,10 +49,10 @@ em {
 
 
 /* Animations */
-
+/* 
 .fade-in { animation: fadeIn .3s; }
 
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
-}
+} */ */

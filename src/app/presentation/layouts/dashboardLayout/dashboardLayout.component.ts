@@ -19,10 +19,9 @@ import {routes} from '../../../app.routes'
 export class DashboardLayoutComponent { 
 
 
-  public routes = routes[0].children?.filter(route => route.data )
+  public route = routes.filter(route => route.path?.trim()=== 'dashboard')[0].children?.filter(route => route.data)
 
   constructor() {
-   console.log(routes)
-    
+    //console.log(this.route)
   }
 }
